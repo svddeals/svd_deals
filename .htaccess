@@ -1,1 +1,12 @@
+# Disable direct access to specific files
+<FilesMatch "\.(m3u|js|css)$">
+    Order Deny,Allow
+    Deny from all
+    Allow from svddeals.github.io/svd_deals/
+</FilesMatch>
 
+# Allow access only through specific pages
+<FilesMatch "^(index\.html)$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
