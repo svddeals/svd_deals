@@ -1,30 +1,19 @@
 # Prevent directory listing
 Options -Indexes
 
-# Allow access to specific files
+# Restrict access to certain file types
+<FilesMatch "\.(html|css|js|png|m3u)$">
+    Require all denied
+</FilesMatch>
+
+# Allow access to index.html
 <Files "index.html">
     Require all granted
 </Files>
 
-<Files "styles.css">
+# Allow access to styles.css, scripts.js for normal browsing
+<FilesMatch "^(styles\.css|scripts\.js)$">
     Require all granted
-</Files>
-
-<Files "scripts.js">
-    Require all granted
-</Files>
-
-<Files "SVD_Deals-Logo.png">
-    Require all granted
-</Files>
-
-<Files "Links.m3u">
-    Require all granted
-</Files>
-
-# Deny access to other files with specific extensions
-<FilesMatch "\.(html|css|js|m3u)$">
-    Require all denied
 </FilesMatch>
 
 # Prevent access to .htaccess itself
@@ -32,5 +21,7 @@ Options -Indexes
     Require all denied
 </Files>
 
-# Ensure no directory browsing
-Options -Indexes
+# Prevent access to other files and directories
+<FilesMatch "^(SVD_Deals-Logo\.png|Links\.m3u)$">
+    Require all denied
+</FilesMatch>
