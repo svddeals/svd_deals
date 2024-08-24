@@ -47,6 +47,16 @@ body {
     color: #000000;
 }
 
+/* Scrolling Container */
+.scrolling-container {
+    padding: 10px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+    border-radius: 5px;
+}
+
 /* Search Bar */
 #search-bar {
     max-width: 500px;
@@ -62,7 +72,7 @@ body {
     align-items: center;
     width: 100%;
     margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(153, 203, 243, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border-radius: 10px;
 }
@@ -70,6 +80,17 @@ body {
 .card:hover {
     transform: scale(1.05);
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Number Styling on Image */
+.card-number {
+    position: absolute;
+    top: 15px;
+    left: 5px;
+    background-color: #007bff;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 10%;
 }
 
 .card img {
@@ -81,12 +102,13 @@ body {
 
 .card-body {
     text-align: center;
-    background-color: black;
+    background-color: #007bff;
     color: white;
     padding: 10px;
     width: 100%;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    
 }
 
 /* Adjust the grid for 4 cards per row */
