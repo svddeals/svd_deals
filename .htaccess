@@ -1,12 +1,36 @@
-# Disable direct access to specific files
-<FilesMatch "\.(m3u|js|css)$">
-    Order Deny,Allow
-    Deny from all
-    Allow from svddeals.github.io/svd_deals/
+# Prevent directory listing
+Options -Indexes
+
+# Allow access to specific files
+<Files "index.html">
+    Require all granted
+</Files>
+
+<Files "styles.css">
+    Require all granted
+</Files>
+
+<Files "scripts.js">
+    Require all granted
+</Files>
+
+<Files "SVD_Deals-Logo.png">
+    Require all granted
+</Files>
+
+<Files "Links.m3u">
+    Require all granted
+</Files>
+
+# Deny access to other files with specific extensions
+<FilesMatch "\.(html|css|js|m3u)$">
+    Require all denied
 </FilesMatch>
 
-# Allow access only through specific pages
-<FilesMatch "^(index\.html)$">
-    Order Allow,Deny
-    Allow from all
-</FilesMatch>
+# Prevent access to .htaccess itself
+<Files ".htaccess">
+    Require all denied
+</Files>
+
+# Ensure no directory browsing
+Options -Indexes
